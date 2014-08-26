@@ -1,0 +1,24 @@
+.hide {
+    margin-top: -20px;
+    opacity: 0;
+}
+
+.show {
+    margin-top: 0px;
+    opacity: 0.8;
+}
+
+#fullscreen-clock {
+    border-radius: 5px;
+    background: #fff;
+    transition: all .5s ease-in-out;
+    padding: 0px 3px;
+    color: #000000;
+    font-size: 15px;
+    text-align: center;
+    z-index: 20000;
+    position: fixed;
+    top: 5px;
+    right: 10px;
+    pointer-events: none;
+}

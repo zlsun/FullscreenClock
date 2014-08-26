@@ -1,0 +1,24 @@
+{
+    "background": {
+        "scripts": ["background.js"]
+    },
+    "content_scripts": [{
+        "css": ["fullscreen-clock.css"],
+        "js": ["fullscreen-clock.js"],
+        "matches": ["http://*/*", "https://*/*"],
+        "run_at": "document_end"
+    }],
+    "description": "Display time on the top-right corner in fullscreen mode.",
+    "icons": {
+        "128": "icons/128x128.png",
+        "16": "icons/16x16.png",
+        "32": "icons/32x32.png",
+        "48": "icons/48x48.png"
+    },
+    "manifest_version": 2,
+    "minimum_chrome_version": "22",
+    "name": "Fullscreen Clock",
+    "permissions": ["tabs"],
+    "version": "1.0.0",
+    "web_accessible_resources": ["fullscreen-clock.css"]
+}
