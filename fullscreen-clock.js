@@ -4,12 +4,12 @@
 
     function getWindowState(callback) {
         chrome.extension.sendRequest({
-                name: 'getWindow'
+                name: 'getWindowState'
             },
             function(response) {
-                if (response && response.window) {
+                if (response && response.windowState) {
                     if (callback) {
-                        callback(response.window.state);
+                        callback(response.windowState);
                     }
                 }
             }
@@ -43,13 +43,13 @@
     }
 
     function getTime() {
-        var today = new Date()
-        var h = today.getHours()
-        var m = today.getMinutes()
-        var s = today.getSeconds()
-        m = checkTime(m)
-        s = checkTime(s)
-        return h + ":" + m + ":" + s
+        var today = new Date();
+        var h = today.getHours();
+        var m = today.getMinutes();
+        var s = today.getSeconds();
+        m = checkTime(m);
+        s = checkTime(s);
+        return h + ":" + m + ":" + s;
     }
 
     setInterval(function() {
