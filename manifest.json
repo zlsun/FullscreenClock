@@ -1,7 +1,4 @@
 {
-    "background": {
-        "scripts": ["background.js"]
-    },
     "content_scripts": [{
         "css": ["fullscreen-clock.css"],
         "js": ["fullscreen-clock.js"],

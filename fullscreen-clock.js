@@ -2,20 +2,6 @@
 
     var content = document.documentElement ? document.documentElement : document.body;
 
-    function getWindowState(callback) {
-        chrome.extension.sendRequest({
-                name: 'getWindowState'
-            },
-            function(response) {
-                if (response && response.windowState) {
-                    if (callback) {
-                        callback(response.windowState);
-                    }
-                }
-            }
-        );
-    }
-
     var hover = false;
 
     function addClock() {
@@ -31,15 +17,13 @@
                 hover = false;
             }
         });
+        return clock;
     }
 
-    addClock();
+    var clock = addClock();
 
     function checkTime(i) {
-        if (i < 10) {
-            i = "0" + i;
-        }
-        return i;
+        return (i < 10) ? ("0" + i) : i;
     }
 
     function getTime() {
@@ -52,20 +36,23 @@
         return h + ":" + m + ":" + s;
     }
 
-    setInterval(function() {
-        getWindowState(function(window_state) {
-            var clock = document.getElementById("fullscreen-clock");
-            if (window_state == "fullscreen" && !hover) {
-                clock.innerHTML = getTime();
-                if (clock.className == "hide") {
-                    clock.className = "show";
-                }
-            } else {
-                if (clock.className == "show") {
-                    clock.className = "hide";
-                }
+    function isFullScreen() {
+        return (screen.width == window.outerWidth && screen.height == window.outerHeight);
+    }
+
+    function update() {
+        if (isFullScreen() && !hover) {
+            clock.innerHTML = getTime();
+            if (clock.className == "hide") {
+                clock.className = "show";
             }
-        });
-    }, 500);
+        } else {
+            if (clock.className == "show") {
+                clock.className = "hide";
+            }
+        }
+    }
+
+    window.setInterval(update, 1000);
 
 })(document, window);
