@@ -14,12 +14,12 @@
     pointer-events: none;
 }
 
-#fullscreen-clock .hide {
+#fullscreen-clock.hide {
     margin-top: -20px;
     opacity: 0;
 }
 
-#fullscreen-clock .show {
+#fullscreen-clock.show {
     margin-top: 0px;
     opacity: 0.8;
 }
