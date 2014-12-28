@@ -8,7 +8,6 @@
         var clock = document.createElement("div");
         clock.id = "fullscreen-clock";
         clock.className = "hide";
-        clock.innerHTML = "Time";
         document.body.appendChild(clock);
         window.addEventListener("mousemove", function(event) {
             if ((content.clientWidth - event.clientX) < 71 && event.clientY < 22) {
